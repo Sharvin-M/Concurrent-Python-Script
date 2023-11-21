@@ -1,6 +1,12 @@
-import cv2 as c
+import cv2 as cv
 import numpy as np
 
-haystack_img = cv.inread("queuePop.png", cv.IMREAD_UNCHANGED)
-needle_img = cv.inread("acceptButton.png", cv.IMREAD_UNCHANGED)
+haystack_img = cv.imread("queuePop.jpg", cv.IMREAD_UNCHANGED)
+needle_img = cv.imread("acceptButton.jpg", cv.IMREAD_UNCHANGED)
 
+
+result = cv.matchTemplate(haystack_img, needle_img,  cv.TM_SQDIFF_NORMED) # method that locates needle in haystack
+
+
+cv.imshow('Result', result) # shows script
+cv.waitKey() # pauses script

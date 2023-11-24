@@ -28,7 +28,6 @@ if max_val >= threshold:
                  color = (0, 255, 0), thickness = 2, lineType=cv.LINE_4)
     cv.imshow('Result', haystack_img)
     cv.waitKey()
-    # can use imwrite to save image to a file
 else:
     print("Needle not found")
 

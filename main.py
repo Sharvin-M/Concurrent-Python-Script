@@ -17,28 +17,22 @@ def capture_screen():
 
 # Create a window to display the captured screen
 cv.namedWindow('Screen Capture', cv.WINDOW_NORMAL)
-
 needle_img = cv.imread("acceptButton.jpg")
-
-haystack_img = None
+threshold = 0.8 
+needle_w = needle_img.shape[1]
+needle_h = needle_img.shape[0]
 
 # Continuously capture the screen and display it
 while True:
     # Capture the screen image
     haystack_img = capture_screen()
 
-    #haystack_img = cv.imread("queuePop.jpg")
-    
     result = cv.matchTemplate(haystack_img, needle_img,  cv.TM_CCOEFF_NORMED) 
     min_val, max_val, min_loc, max_loc = cv.minMaxLoc(result) 
-   
-    threshold = 0.8 
+
     if max_val >= threshold:
         # Execute your code here if the confidence is high enough
-    
-        needle_w = needle_img.shape[1]
-        needle_h = needle_img.shape[0]
-        
+        print("Found needle") 
         top_left = max_loc
         bottom_right = (top_left[0] + needle_w, top_left[1] + needle_h)
         cv.rectangle(haystack_img, top_left, bottom_right, 

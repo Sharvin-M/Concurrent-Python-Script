@@ -18,7 +18,7 @@ def capture_screen():
 # Create a window to display the captured screen
 cv.namedWindow('Screen Capture', cv.WINDOW_NORMAL)
 needle_img = cv.imread("acceptButton.jpg")
-threshold = 0.8 
+threshold = 0.5 
 needle_w = needle_img.shape[1]
 needle_h = needle_img.shape[0]
 

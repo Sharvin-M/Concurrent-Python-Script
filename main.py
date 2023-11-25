@@ -14,6 +14,10 @@ def capture_screen():
     frame = cv.cvtColor(np.array(screen_image), cv.COLOR_RGB2BGR)
 
     return frame
+def mouse_click(x, y):
+    pyautogui.moveTo(x, y)
+    pyautogui.click()
+    print("Clicked at: ", x, y)
 
 # Create a window to display the captured screen
 cv.namedWindow('Screen Capture', cv.WINDOW_NORMAL)
@@ -37,6 +41,7 @@ while True:
         bottom_right = (top_left[0] + needle_w, top_left[1] + needle_h)
         cv.rectangle(haystack_img, top_left, bottom_right, 
                     color = (0, 255, 0), thickness = 2, lineType=cv.LINE_4)
+        mouse_click(top_left[0] + needle_w/2, top_left[1] + needle_h/2)
         cv.imshow('Result', haystack_img)
         cv.waitKey()
     else:

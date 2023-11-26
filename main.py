@@ -3,8 +3,6 @@ import numpy as np
 import pyautogui
 
 
-            this should trigger the new github action
-
 # Function to capture the entire screen
 def capture_screen():
     # Get the screen dimensions

@@ -44,7 +44,7 @@ while True:
 
     # create a bounding rectangle around the accept button
     if max_val >= threshold:
-        print("Found needle")
+        print("Found Accept Button")
         top_left = max_loc
         bottom_right = (top_left[0] + needle_w, top_left[1] + needle_h)
         cv.rectangle(
@@ -61,7 +61,7 @@ while True:
         # don't need to display result        cv.imshow('Result', haystack_img)
         cv.waitKey()
     else:
-        print("Needle not found")
+        print("Searching for Accept Button...")
     # Break the loop if 'q' is pressed
     if cv.waitKey(1) == ord("q"):
         cv.destroyAllWindows()

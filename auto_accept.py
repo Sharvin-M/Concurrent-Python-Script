@@ -23,6 +23,7 @@ def mouse_click(x, y):
     pyautogui.click()
     print("Clicked at: ", x, y)
 
+
 def main():
     # Create a window to display the captured screen
     cv.namedWindow("Screen Capture", cv.WINDOW_NORMAL)
@@ -66,6 +67,7 @@ def main():
         if cv.waitKey(1) == ord("q"):
             cv.destroyAllWindows()
             break
+
+
 if __name__ == "__main__":
     main()
-    

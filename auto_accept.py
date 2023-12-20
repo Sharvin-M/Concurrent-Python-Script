@@ -24,7 +24,7 @@ def mouse_click(x, y):
     print("Clicked at: ", x, y)
 
 
-def main():
+def accept():
     # Create a window to display the captured screen
     cv.namedWindow("Screen Capture", cv.WINDOW_NORMAL)
     needle_img = cv.imread("acceptButton.jpg")  # searching for accept button
@@ -67,7 +67,3 @@ def main():
         if cv.waitKey(1) == ord("q"):
             cv.destroyAllWindows()
             break
-
-
-if __name__ == "__main__":
-    main()

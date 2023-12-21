@@ -62,11 +62,7 @@ def accept():
             mouse_click(top_left[0] + needle_w / 2, top_left[1] + needle_h / 2)
             # don't need to display result        cv.imshow('Result', haystack_img)
             cv.waitKey()
-        else:
-            print("Searching for Accept Button...")
-        # Break the loop if 'q' is pressed
-        while True:
-            if closeButtonClicked:
+            if cv.waitKey(1) == ord("q"):
                 break
 
 
@@ -75,8 +71,6 @@ def button_callback():
 
 
 def close_callback():
-    global closeButtonClicked
-    closeButtonClicked = True
     app.destroy()
 
 
@@ -84,7 +78,6 @@ app = customtkinter.CTk()
 app.title("Auto League Accept")
 app.geometry("400x150")
 
-closeButtonClicked = False
 
 runButton = customtkinter.CTkButton(app, text="Queue", command=button_callback)
 runButton.grid(row=200, column=500, padx=20, pady=20)

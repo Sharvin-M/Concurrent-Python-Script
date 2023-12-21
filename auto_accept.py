@@ -1,3 +1,4 @@
+import customtkinter
 import cv2 as cv
 import numpy as np
 import pyautogui
@@ -64,6 +65,32 @@ def accept():
         else:
             print("Searching for Accept Button...")
         # Break the loop if 'q' is pressed
-        if cv.waitKey(1) == ord("q"):
-            cv.destroyAllWindows()
-            break
+        while True:
+            if closeButtonClicked:
+                break
+
+
+def button_callback():
+    accept()
+
+
+def close_callback():
+    global closeButtonClicked
+    closeButtonClicked = True
+    app.destroy()
+
+
+app = customtkinter.CTk()
+app.title("Auto League Accept")
+app.geometry("400x150")
+
+closeButtonClicked = False
+
+runButton = customtkinter.CTkButton(app, text="Queue", command=button_callback)
+runButton.grid(row=200, column=500, padx=20, pady=20)
+
+closeButton = customtkinter.CTkButton(app, text="Close", command=close_callback)
+closeButton.grid(row=200, column=550, padx=20, pady=20)
+
+
+app.mainloop()

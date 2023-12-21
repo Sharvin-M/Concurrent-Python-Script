@@ -5,11 +5,16 @@ def button_callback():
     accept()  # Call the accept() function from the other module
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 def close_callback():
     global closeButtonClicked
     closeButtonClicked = not closeButtonClicked
     app.destroy()
+=======
+# def close_callback():
+    # app.destroy()
+>>>>>>> parent of 0f96fad (fix: close button functionality)
 =======
 # def close_callback():
     # app.destroy()
@@ -20,6 +25,7 @@ app = customtkinter.CTk()
 app.title("Auto Accept")
 app.geometry("400x150")
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 closeButtonClicked = False
 
@@ -33,5 +39,9 @@ button = customtkinter.CTkButton(app, text="In Queue", command=button_callback)
 button.grid(row=200, column=500, padx=20, pady=20)
 >>>>>>> parent of 0f96fad (fix: close button functionality)
 
+=======
+button = customtkinter.CTkButton(app, text="In Queue", command=button_callback)
+button.grid(row=200, column=500, padx=20, pady=20)
+>>>>>>> parent of 0f96fad (fix: close button functionality)
 
 app.mainloop()

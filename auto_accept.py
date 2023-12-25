@@ -9,7 +9,6 @@ customtkinter.set_default_color_theme("dark-blue")
 
 running = None
 
-
 def capture_screen():
     screen_width, screen_height = pyautogui.size()
     screen_image = pyautogui.screenshot()
@@ -54,9 +53,8 @@ def stop():
     running = False
     print("stopped")
 
-
 def quit():
-    global running
+    global running 
     running = False
     print("quit")
     app.destroy()
@@ -66,7 +64,7 @@ app = customtkinter.CTk()
 app.title("Auto League Accept")
 app.geometry("400x150")
 
-startButton = customtkinter.CTkButton(app, text="Queue", command=start)
+startButton= customtkinter.CTkButton(app, text="Queue", command=start)
 stopButton = customtkinter.CTkButton(app, text="Stop", command=stop)
 quitButton = customtkinter.CTkButton(app, text="Quit", command=quit)
 

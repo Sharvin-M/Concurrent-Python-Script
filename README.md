@@ -14,8 +14,6 @@ This will create a copy of this repository in your account.
 
 <img align="center" width="300" src="https://firstcontributions.github.io/assets/Readme/clone.png" alt="clone this repository" />
 
-
-
 Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button and then click the _copy to clipboard_ icon.
 
 
@@ -34,14 +32,14 @@ Now you can install the packages needed to run the script with
 ```zsh
 pip3 install -r requirements.txt
 ```
-
-Finally You can run the script and have it running in the background whille in queue
+cd into the Dist directory and run the script
 
 ```
 ./auto_accept
 ```
+this will open up the app's ui in which you can start and stop the script and close the app altogether
 
-## App Demo:
+## App Demo (Doesn't showcase new UI):
 
 
 https://github.com/Sharvin-M/lolClientScript/assets/108958862/2e6d0b6e-21b0-42c4-9fdd-a09800a5046d

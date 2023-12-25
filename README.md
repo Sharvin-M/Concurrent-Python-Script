@@ -1,13 +1,8 @@
 # Python Script That Accepts a Match Automatically When You Are in Queue 
 
 Py auto gui screen capture --> openCV match template determines if and where the accept button is --> if present click on it 
--
--
--
--
--
--
--
+
+# Update: Now Available As An Executale
 
 ## HOW TO RUN THIS SCRIPT ON YOUR MACHINE 
 
@@ -43,7 +38,7 @@ pip3 install -r requirements.txt
 Finally You can run the script and have it running in the background whille in queue
 
 ```
-python3 auto_accept.py
+./auto_accept
 ```
 
 ## App Demo:

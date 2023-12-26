@@ -11,8 +11,8 @@ threshold = 0.5
 needle_w = needle_img.shape[1]
 needle_h = needle_img.shape[0]
 
+
 def capture_screen():
-    screen_width, screen_height = pyautogui.size()
     screen_image = pyautogui.screenshot()
     frame = cv.cvtColor(np.array(screen_image), cv.COLOR_RGB2BGR)
     return frame
@@ -35,7 +35,8 @@ def accept():
             print("Found Accept Button")
             top_left = max_loc
             mouse_click(top_left[0] + needle_w / 2, top_left[1] + needle_h / 2)
-        app.after(1, accept)
+        app.after(105, accept)
+
 
 def start():
     global running
@@ -68,5 +69,4 @@ startButton.grid(row=1, column=1, padx=20, pady=20)
 stopButton.grid(row=2, column=1, padx=20, pady=20)
 quitButton.grid(row=3, column=1, padx=20, pady=20)
 
-app.after(1, accept)
 app.mainloop()

@@ -2,12 +2,12 @@ import customtkinter
 import cv2 as cv
 import numpy as np
 import pyautogui
-import multiprocessing
+import threading
 
 customtkinter.set_default_color_theme("dark-blue")
 
 running = None
-needle_img = (cv.imread("acceptButton.png", cv.COLOR_RGB2BGR))
+needle_img = cv.imread("acceptButton.png", cv.COLOR_RGB2BGR)
 threshold = 0.6
 
 
@@ -24,7 +24,7 @@ def mouse_click(x, y):
 
 
 def accept():
-    if running is True:
+    while True:
         print("searching")
         haystack_img = capture_screen()
         result = cv.matchTemplate(haystack_img, needle_img, cv.TM_CCOEFF_NORMED)
@@ -33,20 +33,10 @@ def accept():
         if max_val >= threshold:
             print("Found Accept Button")
             top_left = max_loc
-            mouse_click(top_left[0] + needle_img.shape[1] / 2, top_left[1] + needle_img.shape[0] / 2)
-        app.after(105, accept)
-
-
-def start():
-    global running
-    running = True
-    accept()
-
-
-def stop():
-    global running
-    running = False
-    print("stopped")
+            mouse_click(
+                top_left[0] + needle_img.shape[1] / 2,
+                top_left[1] + needle_img.shape[0] / 2,
+            )
 
 
 def quit():
@@ -56,11 +46,22 @@ def quit():
     app.destroy()
 
 
+def stop():
+    global running
+    running = False
+    print("stopped")
+
+
+def accept_thread():
+    accept()
+
 app = customtkinter.CTk()
 app.title("Auto League Accept")
 app.geometry("150x150")
 
-startButton = customtkinter.CTkButton(app, text="Queue", command=start)
+startButton = customtkinter.CTkButton(
+    app, text="Queue", command=lambda: threading.Thread(target=accept_thread).start()
+)
 stopButton = customtkinter.CTkButton(app, text="Stop", command=stop)
 quitButton = customtkinter.CTkButton(app, text="Quit", command=quit)
 

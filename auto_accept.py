@@ -2,14 +2,13 @@ import customtkinter
 import cv2 as cv
 import numpy as np
 import pyautogui
+import multiprocessing
 
 customtkinter.set_default_color_theme("dark-blue")
 
 running = None
-needle_img = cv.imread("acceptButton.jpg")
-threshold = 0.5
-needle_w = needle_img.shape[1]
-needle_h = needle_img.shape[0]
+needle_img = (cv.imread("acceptButton.png", cv.COLOR_RGB2BGR))
+threshold = 0.6
 
 
 def capture_screen():
@@ -34,7 +33,7 @@ def accept():
         if max_val >= threshold:
             print("Found Accept Button")
             top_left = max_loc
-            mouse_click(top_left[0] + needle_w / 2, top_left[1] + needle_h / 2)
+            mouse_click(top_left[0] + needle_img.shape[1] / 2, top_left[1] + needle_img.shape[0] / 2)
         app.after(105, accept)
 
 
